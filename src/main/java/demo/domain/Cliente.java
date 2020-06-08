@@ -18,7 +18,7 @@ public class Cliente implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;	
+	private Integer id;
 	
 	private String nome;
 	private String end;
@@ -26,10 +26,11 @@ public class Cliente implements Serializable {
 	private String email;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "Cliente")
+	@OneToMany(mappedBy = "cliente")
 	private List<Animal> animal = new ArrayList<>();
 	
-	public Cliente() {	
+	public Cliente() {
+		
 	}
 
 	public Cliente(Integer id, String nome, String end, String tel, String email) {
@@ -109,4 +110,7 @@ public class Cliente implements Serializable {
 			return false;
 		return true;
 	}
+	
+	
+
 }

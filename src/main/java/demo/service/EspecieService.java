@@ -1,6 +1,7 @@
 package demo.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,4 +23,11 @@ public class EspecieService {
 	public Especie find(Integer id) {
 		return especieRepository.findById(id).get();
 	}
+	
+	public Especie buscar(Integer id) {
+		Optional<Especie> obj = especieRepository.findById(id);
+		
+		return obj.orElse(null);
+	}
+
 }

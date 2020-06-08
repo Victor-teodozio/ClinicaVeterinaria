@@ -7,19 +7,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import demo.domain.Consulta;
-import demo.service.ConsultaService;
+import demo.domain.Especie;
+import demo.service.EspecieService;
 
 @RestController
-@RequestMapping("/consultas")
-public class ConsultaResource {
+@RequestMapping("/especies")
+public class EspecieResource {
 	
 	@Autowired
-	ConsultaService service;
+	EspecieService service;
 	
 	@RequestMapping(value ="/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Consulta> find(@PathVariable Integer id){
-		Consulta obj = service.buscar(id);
+	public ResponseEntity<?> find(@PathVariable Integer id){
+		Especie obj = service.buscar(id);
 		return ResponseEntity.ok().body(obj);
 	}
 }
